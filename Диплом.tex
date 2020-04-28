@@ -1,0 +1,42 @@
+\documentclass[a4paper,14pt,oneside]{extreport}
+
+\usepackage{fontspec}           % Поддержка OpenType-шрифтов
+\usepackage[russian]{babel}     % Поддержка русского языка
+\setmainfont{Times New Roman}   % Times New Roman
+
+\usepackage{setspace}           % Поддержка изменения интервала
+\onehalfspacing                 % Полуторный интервал
+
+\parindent=1.25cm               % Абзацный интервал
+\usepackage{indentfirst}        % Отступ в первом абзаце раздела
+\frenchspacing                  % Пробелы между предложениями = пробелам между словами
+
+\usepackage{geometry}           % 
+\geometry{left=3cm}             %
+\geometry{right=1.5cm}          % Поля
+\geometry{top=2.0cm}            %
+\geometry{bottom=2.0cm}         %
+
+\setcounter{tocdepth}{2}        % Глубина оглавления до подпункта
+
+% ГОСТ 7.0.5-2008 + список литературы через точку
+\makeatletter
+\bibliographystyle{ugost2008}
+\renewcommand{\@biblabel}[1]{#1.}
+\makeatother
+
+\bibliographystyle{ugost2008}   % ГОСТ Р 7.0.5-2008
+
+\begin{document}
+
+    \tableofcontents
+    \newpage
+
+    \include{Главы/Введение}
+
+    \renewcommand\bibname{Список использованных источников}
+    \addcontentsline{toc}{section}{Список использованных источников}
+    \bibliography{Библиография}
+    
+    
+\end{document}
