@@ -19,18 +19,36 @@
 
 \setcounter{tocdepth}{2}        % Глубина оглавления до подпункта
 
+\usepackage{graphicx}           % Картиночки
+\graphicspath{ {./images/} }    % Директория с картиночками
+
+\usepackage{listings}           % Листинги кода
+\lstset{
+    language=[Sharp]C
+}
+
+\usepackage{pdfpages}           % Встраивание pdf
+
 % ГОСТ 7.0.5-2008 + список литературы через точку
 \makeatletter
 \bibliographystyle{ugost2008}
 \renewcommand{\@biblabel}[1]{#1.}
 \makeatother
 
+\usepackage[strings]{underscore}    % Поддержка нижнего подчёркивания в bib
+
 \begin{document}
+    \includepdf[pages=-]{pdf/Титульный лист}
+    \includepdf[pages=-]{pdf/Задание}
+    \includepdf[pages=-]{pdf/Аннотация}
 
     \tableofcontents
     \newpage
 
     \include{Главы/Введение}
+    \include{Главы/Аналоги}
+    \include{Главы/Проектирование}
+    \include{Главы/Разработка}
 
     \renewcommand\bibname{Список использованных источников}
     \addcontentsline{toc}{section}{Список использованных источников}
