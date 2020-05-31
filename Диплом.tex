@@ -11,48 +11,91 @@
 \usepackage{indentfirst}        % Отступ в первом абзаце раздела
 \frenchspacing                  % Пробелы между предложениями = пробелам между словами
 
+\tolerance=1                    % 
+\emergencystretch=\maxdimen     % Не переносить слова
+\hyphenpenalty=10000            %
+\hbadness=10000                 %
+
 \usepackage{geometry}           % 
 \geometry{left=3cm}             %
 \geometry{right=1.5cm}          % Поля
 \geometry{top=2.0cm}            %
 \geometry{bottom=2.0cm}         %
 
+
 \setcounter{tocdepth}{2}        % Глубина оглавления до подпункта
 
-\usepackage{graphicx}           % Картиночки
-\graphicspath{ {./images/} }    % Директория с картиночками
 
-\usepackage{listings}           % Листинги кода
-\lstset{
-    language=[Sharp]C
-}
+\usepackage{graphicx}                  % Картинки
+\graphicspath{ {./images/} }           % Директория с картинками
+\setlength{\belowcaptionskip}{25pt}    % Отступ после картинки
 
-\usepackage{pdfpages}           % Встраивание pdf
 
-% ГОСТ 7.0.5-2008 + список литературы через точку
+\usepackage{amsmath}            % Перенос строки в уравнениях
+
+\usepackage{pdfpages}           % Встраивание pdf               %
+
 \makeatletter
 \bibliographystyle{ugost2008}
 \renewcommand{\@biblabel}[1]{#1.}
 \makeatother
 
-\usepackage[strings]{underscore}    % Поддержка нижнего подчёркивания в bib
-
 \begin{document}
     \includepdf[pages=-]{pdf/Титульный лист}
     \includepdf[pages=-]{pdf/Задание}
     \includepdf[pages=-]{pdf/Аннотация}
-
+    
     \tableofcontents
     \newpage
 
+    \include{Главы/Термины}
     \include{Главы/Введение}
     \include{Главы/Аналоги}
     \include{Главы/Проектирование}
     \include{Главы/Разработка}
-
-    \renewcommand\bibname{Список использованных источников}
-    \addcontentsline{toc}{section}{Список использованных источников}
-    \bibliography{Библиография}
+    \include{Главы/Заключение}
     
+    \addcontentsline{toc}{section}{Список использованных источников}
+    \renewcommand\bibname{Список использованных источников}
+    
+    \begin{thebibliography}{3}
+    
+    \bibitem{LowPolyIntro}
+    An Intro to Low-Poly and Flat Design [Электронный ресурс]. 2018. - URL: https://developer.amazon.com/blogs/appstore/post/aaedd3b8-5e3f-4b4b-a567-c3257139cbcf/an-intro-to-low-poly-and-flat-design;
+    
+    \bibitem{UnityMesh}
+    Unity - Manual: Mesh Components [Электронный ресурс]. URL: https://docs.unity3d.com/Manual/comp-MeshGroup.html;
+    
+    \bibitem{FlatShader}
+    Rendering Flat-Shaded / Low-Poly Style Models in Unity [Электронный ресурс]. 2019. URL: https://hextantstudios.com/unity-flat-low-poly-shader;
+    
+    \bibitem{IcosahedronMath}
+    The Golden Geometry of Solids or Phi in 3 dimensions [Электронный ресурс]. 2016. URL: http://www.maths.surrey.ac.uk/hosted-sites/R.Knott/Fibonacci/phi3DGeom.html;
+    
+    \bibitem{Subdivision}
+    Subdivision of icosahedrons [Электронный ресурс]. 2012. URL: http://blog.coredumping.com/subdivision-of-icosahedrons
+    
+    \bibitem{BezierCurves}
+    Кривые Безье и Пикассо [Электронный ресурс]. 2017. URL: https://habr.com/ru/post/344814/;
+    
+    \bibitem{hassank}
+    Procedural growth of a low poly tree in Unity [Электронный ресурс]. 2016. URL: https://github.com/hassank/TreeGrowth;
+    
+    \bibitem{friggog}
+    Procedural generation of tree models in blender [Электронный ресурс]. 2019. URL: https://github.com/friggog/tree-gen;
+    
+    \bibitem{treeit}
+    Официальный сайт TreeIt [Электронный ресурс]. URL: http://www.evolved-software.com/treeit/treeit;
+    
+    \bibitem{UnityEditor}
+    Unity - Manual: Custom Editors [Электронный ресурс]. URL: https://docs.unity3d.com/Manual/editor-CustomEditors.html;
+    
+    \bibitem{quaternions}
+    Доступно о кватернионах и их преимуществах [Электронный ресурс]. 2018. URL: https://habr.com/ru/post/426863/;
+    
+    \bibitem{youtube}
+    YouTube [Электронный ресурс]. URL: https://youtube.com.
+    
+    \end{thebibliography}
     
 \end{document}
